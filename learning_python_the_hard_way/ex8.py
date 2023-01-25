@@ -12,3 +12,6 @@ print(formatter.format(
     "Maybe a poem",
     "Or a song about fear"
 ))
+
+# when calling formatter.format() you need to pass 4, one for each
+# of the parameters for {} otherwise you get an indexError
