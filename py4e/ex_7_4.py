@@ -13,4 +13,6 @@ for line in fh:
         num = float(stringnum)
         count += 1
         total += num
-print("Average spam confidence:", total / count)
+
+average = total / count
+print("Average spam confidence:", average)

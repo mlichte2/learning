@@ -22,4 +22,5 @@ hrs = float(input("Enter Hours: "))
 rate = float(input("Enter Rate: "))
 
 p = computepay(hrs, rate)
-print("Pay", p)
+print("Weeekly pay", p)
+print("52 week salary (1 year):", p * 52)
