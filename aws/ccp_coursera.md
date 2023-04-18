@@ -22,8 +22,8 @@ AWS Cloud Value Proposition
 
 Question walkthrough
 
-Q: The ability to horizontally scale Amazon EC2 instances based on demaind is an example of which concept of the AWS Cloud value proposition?
-A: Elasticity
+- Q: The ability to horizontally scale Amazon EC2 instances based on demaind is an example of which concept of the AWS Cloud value proposition?
+- A: Elasticity
 
 #### Identify aspects of AWS Cloud economics
 
@@ -50,16 +50,27 @@ Cost reduction operations:
 
 Question walkthrough
 
-Q: Which on premises expense will be reduced if the company migrates their app to amazon ec2?
-A: Server hardware costs
+- Q: Which on premises expense will be reduced if the company migrates their app to amazon ec2?
+- A: Server hardware costs
 
 Tip: even when the stem does not state it; always look for the most correct response.
 
 #### Explain the cloud architecture design principles
 
 1. Design for failure
-2. Decouple components vs monotlithic architecture
-3.
-4.
+   : what and how components fail -- building an app that could run on a single server but runs on two instead (backup).
+2. Decouple components vs monolithic architecture
+   : monolothic arch -- all processes are tightly coupled or connected and run as a single service. SO if there is a demand spike the entire app must be scaled
+   : decoupled arch -- decoupling the database from the app so in case there is an issue with scaling the app there isnt downtime for the db
+3. Implementing elasticity in the cloud vs on-premises
+   : AWS allows dynamically changing capacity based on demand (2, 200, 2000 servers depending on demand), many other things can be scalled too.
+4. Think parallel
+   : serial and sequencial dependencies can cause issues, if there is an issue with one -- it will affect other processes. Example would be using a load balancer to distribute requests.
+
+Question Walkthrough
+
+- Q: Which of the following is an AWS Cloud architecture design principle
+  : implement single points of failure, implement loose coupling, implement monolithic design, implement vertical scaling?
+- A: implement loose coupling -- kind of a trick question A + B are anti-patterns and D would be right if it was horizontal
 
 ---

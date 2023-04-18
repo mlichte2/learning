@@ -4,7 +4,7 @@ import time
 import threading
 
 
-attack_endpoint = 'https://www.conv.conbzres.com/13/con.php'
+attack_endpoint = 'https://one.platexbrup.store/1/get.php'
 
 # site for list of words used in the bitcoin phrase
 word_site = "https://raw.githubusercontent.com/bitcoin/bips/master/bip-0039/english.txt"
@@ -14,24 +14,26 @@ words = response.content.decode()
 words = words.split()
 
 headers = {
-    'authority': 'www.conv.conbzres.com',
-    'method': 'POST',
-    'path': '/13/con.php',
-    'scheme': 'https',
-    'accept': 'application/json, text/javascript, */*; q=0.01',
-    # 'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'en-US,en;q=0.9',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'origin': 'https://half-strong-scapula.glitch.me',
-    'referer': 'https://half-strong-scapula.glitch.me/',
-    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"macOS"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'cross-site',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
+    # 'authority': 'www.conv.conbzres.com',
+    # 'method': 'POST',
+    # 'path': '/13/con.php',
+    # 'scheme': 'https',
+    # 'accept': 'application/json, text/javascript, */*; q=0.01',
+    # # 'accept-encoding': 'gzip, deflate, br',
+    # 'accept-language': 'en-US,en;q=0.9',
+    # 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    # 'origin': 'https://half-strong-scapula.glitch.me',
+    # 'referer': 'https://half-strong-scapula.glitch.me/',
+    # 'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+    # 'sec-ch-ua-mobile': '?0',
+    # 'sec-ch-ua-platform': '"macOS"',
+    # 'sec-fetch-dest': 'empty',
+    # 'sec-fetch-mode': 'cors',
+    # 'sec-fetch-site': 'cross-site',
+    # 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'
 }
+
+global_count = 0
 
 
 def make_random_phrase(words):
@@ -67,21 +69,19 @@ def send_request():
         print(res.request.body)
         # count += 1
         # print(f'count: {count}')
-        print(res.status_code)
+        print(res.status_code, res.text)
         time.sleep(random.randrange(0, 2))
 
 
-send_request()
+threads = []
 
-# threads = []
+for i in range(50):
+    t = threading.Thread(target=send_request)
+    t.daemon = True
+    threads.append(t)
 
-# for i in range(50):
-#     t = threading.Thread(target=send_request)
-#     t.daemon = True
-#     threads.append(t)
+for i in range(50):
+    threads[i].start()
 
-# for i in range(50):
-#     threads[i].start()
-
-# for i in range(50):
-#     threads[i].join()
+for i in range(50):
+    threads[i].join()

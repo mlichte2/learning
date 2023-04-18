@@ -29,3 +29,12 @@ passing grade is ~70%
 seat time is 120 min
 
 exam is valid for 36 months
+
+# six advantages of cloud
+
+1. trade capex for variable expense
+2. benefit from massive ecomoies of scale
+3. stop guessing capacity
+4. increase speed and agility
+5. stop spending money on running and mainaining data centers
+6. go global in minutes

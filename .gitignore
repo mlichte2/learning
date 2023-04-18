@@ -1,0 +1,8 @@
+*Db.*
+*Sqbpro.*
+*.db
+*.db-journal
+*.sqlite
+*.xml
+*.json
+.DS_Store
